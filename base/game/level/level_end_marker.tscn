@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bipl7yj7vdf1m"]
 
-[ext_resource type="Script" path="res://game/level/level_end_marker.gd" id="1_meh7v"]
+[ext_resource type="Script" path="res://base/game/level/level_end_marker.gd" id="1_meh7v"]
 [ext_resource type="Texture2D" uid="uid://8o3jadyhldst" path="res://icon.svg" id="2_fdy27"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dstn7"]

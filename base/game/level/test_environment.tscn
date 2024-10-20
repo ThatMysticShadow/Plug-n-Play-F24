@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dl58qldrbrnkn"]
 
-[ext_resource type="PackedScene" uid="uid://xb5i5ynpctpq" path="res://game/player/player.tscn" id="1_uj18h"]
-[ext_resource type="PackedScene" uid="uid://bipl7yj7vdf1m" path="res://game/level/level_end_marker.tscn" id="2_ae8rh"]
+[ext_resource type="PackedScene" uid="uid://xb5i5ynpctpq" path="res://base/game/player/player.tscn" id="1_uj18h"]
+[ext_resource type="PackedScene" uid="uid://bipl7yj7vdf1m" path="res://base/game/level/level_end_marker.tscn" id="2_ae8rh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7og8x"]
 size = Vector2(1172, 20)
