@@ -2,13 +2,18 @@
 
 ### Collaborator Details Details
 **You should duplicate the block of four lines below for each collaborator on your level. This information will be used in the credits of the final project.**
+
 **Collaborator Name**: 
+
 **Collaborator Role**: 
-**itch.io Page Link**: 
+
+**itch.io Page Link**:
+ 
 **GitHub Link**:
 
 ### Project Details
 **Level Name**: 
+
 **Level Description**: Include a detailed description of the level and the mechanics included in the level
 
 ## Project Dependencies
