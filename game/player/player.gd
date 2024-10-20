@@ -2,10 +2,14 @@ extends CharacterBody2D
 ## This Player class represents the basic player controller and builds off of 
 ## CharacterBody2D functionality. This class provides a variety of methods for you to be
 ## able to extend and override if you wanted to modify the player's functionality, as well as
-## several quantities for you to tweak to change the feel of the player controller
+## several quantities for you to tweak to change the feel of the player controller.
+## DO NOT modify this script. Instead you should create a new script that extends the Player class
+## if you want to create custom player functionality.
 class_name Player
 
+## This quantity represents the threshold by which input is considered to be 0
 const INPUT_THRESHOLD: float = 0.01
+## This quantity represents the threshold for player speed under which player speed is considered to be 0
 const STOP_VELOCITY_THRSHOLD: float = 0.01
 
 @export_category("Movement Config")
@@ -31,23 +35,39 @@ const STOP_VELOCITY_THRSHOLD: float = 0.01
 @export var max_fall_speed: float = 50
 
 
-# Called when the node enters the scene tree for the first time.
+## This method is called on the first frame that the Player is active in the scene tree, and by default
+## does not do anything. Feel free to override this method if you need to execute any code on the first
+## frame.
 func _ready():
-	pass # Replace with function body.
+	pass
 
 
-# Called every frame. 'delta' is the elapsed time since the previous physics frame.
+## This method is called every frame of the game (separate from _physics_process) and by default does not
+## do anything. Feel free to overrice this method if you need to execute any code every frame separate from
+## the physics engine.
+func _process(_delta):
+	pass
+
+
+## This method is called every update of the Godot physics engine, so all physics adjacent computations
+## and function calls should be done in this method. You are free to override this function and develop
+## your own implementation of player control and movement if you want.
 func _physics_process(delta):
-	
+	# Retrieve the horizontal input axis
 	var direction = Input.get_axis("player_left", "player_right")
+	
+	# Set the player's horizontal velocity based on player input
 	move_horizontal(direction, delta)
 	
+	# Check if the player can jump and execute the jump function if so
 	if Input.is_action_just_pressed("player_jump") and can_jump():
 		jump()
 	
+	# Apply gravity if the player is not grounded
 	if !is_on_floor():
 		apply_gravity(delta)
-		
+	
+	# Call this function to move the player based on all modifications to the player's velocity
 	move_and_slide()
 
 
@@ -65,8 +85,8 @@ func move_horizontal(input: float, delta: float):
 			velocity.x = sign(input) * max_horizontal_speed
 
 
-## Call this function to execute a jump, this function applies an impulse to the player body based
-## on the 
+## Call this function to execute a jump. By default this function sets the player's vertical velocity
+## to the jump_strength value to simulate an upward impulse
 func jump() -> void:
 	velocity.y = -jump_strength
 
