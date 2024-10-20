@@ -1,6 +1,6 @@
 # Plug n' Play 2024 Submission
 
-### Collaborator Details Details
+## Collaborator Details 
 **You should duplicate the block of four lines below for each collaborator on your level. This information will be used in the credits of the final project.**
 
 **Collaborator Name**: 
@@ -11,7 +11,7 @@
  
 **GitHub Link**:
 
-### Project Details
+## Project Details
 **Level Name**: 
 
 **Level Description**: Include a detailed description of the level and the mechanics included in the level
