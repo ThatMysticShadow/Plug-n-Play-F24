@@ -6,6 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_md56h"]
 
 [node name="Player" type="CharacterBody2D"]
+editor_description = "This is a very basic implementation of the player controller which has horizontal movement, jumping, and an animated sprite. DO NOT modify this packed scene or the player.gd script. You should instead create a script that extends the Player class and create a New Inherited Scene (by right clicking the player.tscn file and clicking \"New Inherited Scene\") to create your own custom player functionality."
 script = ExtResource("2_ebjth")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
