@@ -74,7 +74,7 @@ func _physics_process(delta):
 ## Takes a horizontal input value and calculates player horizontal movement accordingly. This 
 ## function automatically handles acceleration and deceleration of the player when there is/isn't
 ## user input respectively
-func move_horizontal(input: float, delta: float):
+func move_horizontal(input: float, delta: float) -> void:
 	if abs(input) < INPUT_THRESHOLD and abs(velocity.x) > 0:
 		velocity.x += -sign(velocity.x) * deceleration * delta
 		if abs(velocity.x) < STOP_VELOCITY_THRSHOLD:
