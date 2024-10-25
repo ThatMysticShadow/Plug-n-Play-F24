@@ -34,12 +34,22 @@ const STOP_VELOCITY_THRSHOLD: float = 0.01
 ## so that they don't accelerate past this speed while in freefall
 @export var max_fall_speed: float = 50
 
+@export_category("Health/Damage Config")
+## The maximum health of the player
+@export var max_health: float = 1
+## The starting health of the player
+@export var starting_health: float = 1
+## The contact damage that the player deals
+@export var contact_damage: float = 1
+
+# Player State
+var current_health: float
 
 ## This method is called on the first frame that the Player is active in the scene tree, and by default
 ## does not do anything. Feel free to override this method if you need to execute any code on the first
 ## frame.
 func _ready():
-	pass
+	current_health = starting_health
 
 
 ## This method is called every frame of the game (separate from _physics_process) and by default does not
@@ -111,3 +121,25 @@ func apply_gravity(delta: float) -> void:
 ## other arbitrary value depending on how many jumps the player is allowed before needing to land).
 func can_jump() -> bool:
 	return is_on_floor()
+
+
+## The default damage method for the player. Simply subtracts the amount from the
+## player's current health.
+func damage(amount: float) -> void:
+	current_health -= amount
+	current_health = clampf(current_health, 0, max_health)
+	check_death()
+
+
+## The function that is called to check if the player has died and perform the correct
+## functionality
+func check_death() -> void:
+	if current_health <= 0.0:
+		print("Player has died")
+		level_loader.reload_level()
+
+
+## This function is given to the player under the assumption that the player can deal
+## contact damage to the enemies somehow (i.e. jumping on the enemy).
+func get_source_damage() -> float:
+	return contact_damage

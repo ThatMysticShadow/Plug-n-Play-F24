@@ -1,6 +1,7 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://bfn4lqenq81v"]
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://bfn4lqenq81v"]
 
 [ext_resource type="Texture2D" uid="uid://idiuh5cvdvnn" path="res://base/assets/tilemap.png" id="1_nbhgw"]
+[ext_resource type="PackedScene" uid="uid://bl3agpu5ucmfe" path="res://base/game/level/hazards/tiles/spike.tscn" id="2_s2xj4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0wtvv"]
 texture = ExtResource("1_nbhgw")
@@ -496,9 +497,15 @@ texture_region_size = Vector2i(18, 18)
 21:9/0 = 0
 22:9/0 = 0
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_voll8"]
+resource_name = "Spike"
+scenes/1/scene = ExtResource("2_s2xj4")
+scenes/1/display_placeholder = ExtResource("2_s2xj4")
+
 [resource]
 tile_size = Vector2i(18, 18)
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 5
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Grass"
 terrain_set_0/terrain_0/color = Color(0.29631, 0.435734, 0, 1)
@@ -509,3 +516,4 @@ terrain_set_0/terrain_2/color = Color(0.623542, 0.4262, 0.253718, 1)
 custom_data_layer_0/name = "TileType"
 custom_data_layer_0/type = 2
 sources/0 = SubResource("TileSetAtlasSource_0wtvv")
+sources/1 = SubResource("TileSetScenesCollectionSource_voll8")
