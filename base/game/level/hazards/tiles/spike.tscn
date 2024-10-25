@@ -22,7 +22,9 @@ script = ExtResource("1_06m7x")
 texture = SubResource("AtlasTexture_lme01")
 
 [node name="Area2D" type="Area2D" parent="."]
-editor_description = "This Area2D represents the \"hurtbox\" of the spike object or the thing that triggers a collision/overlap detection with the player hitbox."
+editor_description = "This Area2D represents the \"hurtbox\" of the spike object or the thing that triggers a collision/overlap detection with the player hitbox.
+
+In general hurtboxes are just Area2Ds and don't need any extra special code. Consequently every hazard/enemy object should only have one Area2D to represent the Hurtbox"
 collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
