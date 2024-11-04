@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://dl58qldrbrnkn"]
+[gd_scene load_steps=9 format=4 uid="uid://dl58qldrbrnkn"]
 
 [ext_resource type="Script" path="res://base/game/system/level.gd" id="1_gk2hi"]
 [ext_resource type="PackedScene" uid="uid://xb5i5ynpctpq" path="res://base/game/player/player.tscn" id="1_uj18h"]
 [ext_resource type="PackedScene" uid="uid://bipl7yj7vdf1m" path="res://base/game/level/level_end_marker.tscn" id="2_ae8rh"]
 [ext_resource type="TileSet" uid="uid://bfn4lqenq81v" path="res://base/game/level/tilesets/kenney_tileset.tres" id="3_00ld1"]
+[ext_resource type="AudioStream" uid="uid://bq7e6oma0o420" path="res://base/assets/sfx/impactWood_medium_000.ogg" id="3_afkqq"]
 [ext_resource type="Script" path="res://base/game/player/player_follow_camera.gd" id="4_eyu5g"]
 [ext_resource type="PackedScene" uid="uid://y44bnrolxlle" path="res://base/game/level/hazards/enemies/basic enemies/legally_distinct_enemy.tscn" id="5_e1d8i"]
 
@@ -30,6 +31,8 @@ deceleration = 2000.0
 jump_strength = 700.0
 gravity = 3000.0
 max_fall_speed = 500.0
+footstep_sound = ExtResource("3_afkqq")
+footstep_max_time = 0.5
 
 [node name="LevelEndMarker" parent="." instance=ExtResource("2_ae8rh")]
 position = Vector2(1101, 609)

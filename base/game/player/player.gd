@@ -42,14 +42,22 @@ const STOP_VELOCITY_THRSHOLD: float = 0.01
 ## The contact damage that the player deals
 @export var contact_damage: float = 1
 
+@export_category("Sound Config")
+## The sound clip to be played when the player is walking
+@export var footstep_sound: AudioStream
+## The time between footsteps
+@export var footstep_max_time: float = 0.1
+
 # Player State
 var current_health: float
+var footstep_time: float
 
 ## This method is called on the first frame that the Player is active in the scene tree, and by default
 ## does not do anything. Feel free to override this method if you need to execute any code on the first
 ## frame.
 func _ready():
 	current_health = starting_health
+	footstep_time = footstep_max_time
 
 
 ## This method is called every frame of the game (separate from _physics_process) and by default does not
@@ -68,6 +76,11 @@ func _physics_process(delta):
 	
 	# Set the player's horizontal velocity based on player input
 	move_horizontal(direction, delta)
+	if (direction != 0 and footstep_time < 0 and is_on_floor()):
+		footstep_time = footstep_max_time
+		sound_player.play_sound(footstep_sound, global_position)
+	else:
+		footstep_time -= delta
 	
 	# Check if the player can jump and execute the jump function if so
 	if Input.is_action_just_pressed("player_jump") and can_jump():
