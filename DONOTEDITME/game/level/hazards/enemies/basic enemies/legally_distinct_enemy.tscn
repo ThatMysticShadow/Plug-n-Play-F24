@@ -1,22 +1,75 @@
-[gd_scene load_steps=10 format=3 uid="uid://y44bnrolxlle"]
+[gd_scene load_steps=13 format=3 uid="uid://y44bnrolxlle"]
 
 [ext_resource type="Script" path="res://DONOTEDITME/game/level/hazards/enemies/basic enemies/walking_enemy.gd" id="1_p12eu"]
-[ext_resource type="Texture2D" uid="uid://idiuh5cvdvnn" path="res://DONOTEDITME/assets/sprites/tilesheets/tilemap.png" id="2_1u1sd"]
+[ext_resource type="Texture2D" uid="uid://d0yopaahkep05" path="res://DONOTEDITME/assets/sprites/tilesheets/tilemap-characters.png" id="2_46ar1"]
 [ext_resource type="Script" path="res://DONOTEDITME/game/level/hazards/enemies/enemy_hitbox.gd" id="3_lfxad"]
 [ext_resource type="Script" path="res://DONOTEDITME/game/level/hazards/enemies/enemy_one_way_hitbox.gd" id="4_o6opj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_60pxy"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3mnux"]
-atlas = ExtResource("2_1u1sd")
-region = Rect2(95, 133, 18, 18)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5s3de"]
+size = Vector2(20, 23)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5efrl"]
-size = Vector2(20, 19)
+size = Vector2(20, 11)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ayhuk"]
+size = Vector2(20, 23)
+
+[sub_resource type="Animation" id="Animation_8co5n"]
+resource_name = "JUMP"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+
+[sub_resource type="Animation" id="Animation_idehs"]
+resource_name = "WALK"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_56ax2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4jysu"]
+_data = {
+"JUMP": SubResource("Animation_8co5n"),
+"RESET": SubResource("Animation_56ax2"),
+"WALK": SubResource("Animation_idehs")
+}
 
 [node name="LegallyDistinctEnemy" type="CharacterBody2D"]
 collision_layer = 4
@@ -27,7 +80,11 @@ script = ExtResource("1_p12eu")
 shape = SubResource("RectangleShape2D_60pxy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("AtlasTexture_3mnux")
+position = Vector2(0, -2)
+texture = ExtResource("2_46ar1")
+hframes = 9
+vframes = 3
+frame = 4
 
 [node name="EnemyContactHitbox" type="Area2D" parent="."]
 editor_description = "This is one of two enemy hitboxes that the LegallyDistinctEnemyType has. This hitbox is specifically tailored to detect and handle player contact damage. Hence it is
@@ -40,6 +97,7 @@ collision_mask = 40
 script = ExtResource("3_lfxad")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyContactHitbox"]
+position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_5s3de")
 debug_color = Color(1.68458e-06, 0.636292, 0.406711, 0.42)
 
@@ -54,7 +112,7 @@ collision_layer = 4
 script = ExtResource("4_o6opj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyOneWayHitbox"]
-position = Vector2(0, -16.5)
+position = Vector2(0, -23.5)
 shape = SubResource("RectangleShape2D_5efrl")
 debug_color = Color(1.68458e-06, 0.636292, 0.406711, 0.42)
 
@@ -62,6 +120,7 @@ debug_color = Color(1.68458e-06, 0.636292, 0.406711, 0.42)
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHurtbox"]
+position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_ayhuk")
 debug_color = Color(0.984526, 0, 0.342716, 0.42)
 
@@ -75,3 +134,8 @@ rotation = -1.0088
 target_position = Vector2(0.612112, 29.1483)
 collision_mask = 10
 collide_with_areas = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4jysu")
+}
