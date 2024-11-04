@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://c2mqcqump028e"]
+[gd_scene load_steps=3 format=3 uid="uid://c2mqcqump028e"]
 
 [ext_resource type="PackedScene" uid="uid://cavhiq8b25tph" path="res://DONOTEDITME/menu/pause_menu.tscn" id="1_1g07d"]
+[ext_resource type="Script" path="res://DONOTEDITME/game/system/level.gd" id="1_fnfqx"]
 
 [node name="Level" type="Node2D"]
+script = ExtResource("1_fnfqx")
 
 [node name="PauseMenu" parent="." instance=ExtResource("1_1g07d")]
 unique_name_in_owner = true

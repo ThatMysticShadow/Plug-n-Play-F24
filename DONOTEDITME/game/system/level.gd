@@ -3,6 +3,7 @@ extends Node2D
 ## should be of type Level.
 class_name Level
 
+@export var music_track: AudioStream
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

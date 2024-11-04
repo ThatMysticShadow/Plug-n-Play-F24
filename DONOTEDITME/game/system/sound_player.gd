@@ -13,6 +13,7 @@ const DEFAULT_MASTER_VOL: float = 1.0
 @export var sfx_min_vol: float = -10
 
 @onready var sound_player = preload("res://DONOTEDITME/game/system/sound_effect.tscn")
+@onready var music_player: AudioStreamPlayer = $SongPlayer
 
 var sfx_curr_vol: float = 0.2
 var master_curr_vol: float = 1.0
@@ -59,3 +60,8 @@ func update_sound(settings: PauseMenu):
 	var sfx_computed_volume = compute_sfx_volume()
 	for sfx in sfx_list:
 		sfx.volume_db = sfx_computed_volume
+
+
+func play_song(song: AudioStream):
+	music_player.stream = song
+	music_player.play()
