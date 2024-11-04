@@ -5,3 +5,4 @@
 [node name="SoundPlayer" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_w7ell")
+sfx_min_vol = 0.0

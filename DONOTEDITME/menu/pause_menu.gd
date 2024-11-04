@@ -1,4 +1,5 @@
 extends Control
+## DO NOT TOUCH THIS CODE AT ALL. You should not need to modidy the pause screen.
 class_name PauseMenu
 
 

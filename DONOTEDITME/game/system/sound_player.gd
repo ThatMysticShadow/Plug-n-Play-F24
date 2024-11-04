@@ -1,6 +1,8 @@
 extends Node
 ## A singleton class designed for the playing of sounds. In any script you should be able to
-## reference the sound_player object which provides you with a method to play a oneshot sound effect
+## reference the sound_player object which provides you with a method to play a oneshot sound effect.
+## DO NOT TOUCH THIS CODE AT ALL. You are also responsible for balancing audio to match the volume
+## of the sample sound effects used.
 class_name SoundPlayer
 
 const DEFAULT_SFX_VOL: float = 0.2
@@ -29,7 +31,6 @@ func play_sound(clip: AudioStream, position: Vector2):
 	
 	# Compute the sfx volume from the settings
 	player.volume_db = compute_sfx_volume()
-	print(player.volume_db)
 	
 	sfx_list.append(player)
 	get_tree().root.add_child(player)
@@ -42,6 +43,8 @@ func _on_effect_finished(player: AudioStreamPlayer2D):
 	player.queue_free()
 
 func compute_sfx_volume() -> float:
+	if sfx_curr_vol == 0:
+		return -20
 	return (sfx_max_vol - sfx_min_vol) * sfx_curr_vol * master_curr_vol + sfx_min_vol
 
 func update_sound(settings: PauseMenu):
