@@ -500,7 +500,6 @@ texture_region_size = Vector2i(18, 18)
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_voll8"]
 resource_name = "Spike"
 scenes/1/scene = ExtResource("2_s2xj4")
-scenes/1/display_placeholder = ExtResource("2_s2xj4")
 
 [resource]
 tile_size = Vector2i(18, 18)

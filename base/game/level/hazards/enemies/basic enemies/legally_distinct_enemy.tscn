@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://y44bnrolxlle"]
+[gd_scene load_steps=10 format=3 uid="uid://y44bnrolxlle"]
 
 [ext_resource type="Script" path="res://base/game/level/hazards/enemies/basic enemies/walking_enemy.gd" id="1_p12eu"]
 [ext_resource type="Texture2D" uid="uid://idiuh5cvdvnn" path="res://base/assets/tilemap.png" id="2_1u1sd"]
 [ext_resource type="Script" path="res://base/game/level/hazards/enemies/enemy_hitbox.gd" id="3_lfxad"]
+[ext_resource type="Script" path="res://base/game/level/hazards/enemies/enemy_one_way_hitbox.gd" id="4_o6opj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_60pxy"]
 
@@ -11,6 +12,9 @@ atlas = ExtResource("2_1u1sd")
 region = Rect2(95, 133, 18, 18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5s3de"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5efrl"]
+size = Vector2(20, 19)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ayhuk"]
 
@@ -39,9 +43,29 @@ script = ExtResource("3_lfxad")
 shape = SubResource("RectangleShape2D_5s3de")
 debug_color = Color(1.68458e-06, 0.636292, 0.406711, 0.42)
 
+[node name="EnemyOneWayHitbox" type="Area2D" parent="."]
+editor_description = "This is one of two enemy hitboxes that the LegallyDistinctEnemyType has. This hitbox is specifically tailored to detect and handle player contact damage. Hence it is
+
+1. A one-way collider so it only triggers when the player jumps on the enemy
+
+2. Only the Player bit is selected in the collision mask (this only detects player colliders, not player projectiles)"
+position = Vector2(0, 8)
+collision_layer = 4
+collision_mask = 33
+script = ExtResource("4_o6opj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyOneWayHitbox"]
+position = Vector2(0, -16.5)
+shape = SubResource("RectangleShape2D_5efrl")
+debug_color = Color(1.68458e-06, 0.636292, 0.406711, 0.42)
+
 [node name="EnemyHurtbox" type="Area2D" parent="."]
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHurtbox"]
 shape = SubResource("RectangleShape2D_ayhuk")
 debug_color = Color(0.984526, 0, 0.342716, 0.42)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+rotation = -1.00938
+target_position = Vector2(-4.90355, 27.8918)

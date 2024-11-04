@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://xb5i5ynpctpq"]
+[gd_scene load_steps=7 format=3 uid="uid://xb5i5ynpctpq"]
 
 [ext_resource type="Texture2D" uid="uid://8o3jadyhldst" path="res://icon.svg" id="1_ivfgi"]
 [ext_resource type="Script" path="res://base/game/player/player.gd" id="2_ebjth"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://base/game/player/player_hitbox.gd" id="4_u5s6u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_md56h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nhygf"]
 
 [node name="Player" type="CharacterBody2D"]
 editor_description = "This is a very basic implementation of the player controller which has horizontal movement, jumping, and an animated sprite. DO NOT modify this packed scene or the player.gd script. You should instead create a script that extends the Player class and create a New Inherited Scene (by right clicking the player.tscn file and clicking \"New Inherited Scene\") to create your own custom player functionality."
@@ -25,3 +27,9 @@ shape = SubResource("RectangleShape2D_md56h")
 editor_description = "This is a basic player hurtbox component (separate from the collision box) designed to detect hazards and enemies. In order for the hurtbox to detect something as dangerous it must be on the Enemy, EnemyProjectile, or Hazard collision layer. Other than that this is just a fancy Area2D node that binds to the player class's default hurt method. Even if you're customizing player behavior I encourage you to use this custom scene.
 "
 script = ExtResource("4_u5s6u")
+
+[node name="PlayerHurtbox" type="Area2D" parent="."]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHurtbox"]
+shape = SubResource("RectangleShape2D_nhygf")
