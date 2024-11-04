@@ -14,8 +14,9 @@ var loaded = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	sfx_slider.value = sfx_slider.max_value * sound_player.DEFAULT_SFX_VOL
-	master_slider.value = master_slider.max_value * sound_player.DEFAULT_MASTER_VOL
+	sfx_slider.value = sfx_slider.max_value * sound_player.sfx_curr_vol
+	master_slider.value = master_slider.max_value * sound_player.master_curr_vol
+	loaded = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -45,10 +46,12 @@ func _on_animation_finished(anim_name):
 
 
 func _on_sfx_slider_changed(value: float):
-	sound_player.update_sound(self)
+	if loaded:
+		sound_player.update_sound(self)
 	
 func _on_master_slider_changed(value: float):
-	sound_player.update_sound(self)
+	if loaded: 
+		sound_player.update_sound(self)
 
 # Button Scripts
 

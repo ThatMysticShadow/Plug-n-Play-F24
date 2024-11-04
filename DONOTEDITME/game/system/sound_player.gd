@@ -14,11 +14,14 @@ const DEFAULT_MASTER_VOL: float = 1.0
 
 @onready var sound_player = preload("res://DONOTEDITME/game/system/sound_effect.tscn")
 
-
-var sfx_curr_vol = DEFAULT_SFX_VOL
-var master_curr_vol = DEFAULT_MASTER_VOL
+var sfx_curr_vol: float = 0.2
+var master_curr_vol: float = 1.0
 
 var sfx_list: Array[AudioStreamPlayer2D] = []
+
+func _enter_tree():
+	sfx_curr_vol = DEFAULT_SFX_VOL
+	master_curr_vol = DEFAULT_MASTER_VOL
 
 
 ## Call this and provide an audio stream and a position for the sound to play a 
@@ -42,10 +45,12 @@ func _on_effect_finished(player: AudioStreamPlayer2D):
 	sfx_list.remove_at(sfx_list.find(player))
 	player.queue_free()
 
+
 func compute_sfx_volume() -> float:
 	if sfx_curr_vol == 0 || master_curr_vol == 0:
 		return -20
 	return (sfx_max_vol - sfx_min_vol) * sfx_curr_vol * master_curr_vol + sfx_min_vol
+
 
 func update_sound(settings: PauseMenu):
 	sfx_curr_vol = settings.get_sfx_volume()
