@@ -197,10 +197,6 @@ text = "Continue Playing"
 layout_mode = 2
 text = "Return to Title"
 
-[node name="QuitButton" type="Button" parent="MenuElements/ColorRect/VBoxContainer"]
-layout_mode = 2
-text = "Quit Game"
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_47jph")
@@ -212,5 +208,4 @@ autoplay = "RESET"
 [connection signal="pressed" from="MenuElements/ColorRect/VBoxContainer/FullScreenButton" to="." method="_on_fullscreen_press"]
 [connection signal="pressed" from="MenuElements/ColorRect/VBoxContainer/RestartButton" to="." method="_on_restart_press"]
 [connection signal="pressed" from="MenuElements/ColorRect/VBoxContainer/ContinueButton" to="." method="_on_continue_press"]
-[connection signal="pressed" from="MenuElements/ColorRect/VBoxContainer/QuitButton" to="." method="_on_quit_press"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_finished"]

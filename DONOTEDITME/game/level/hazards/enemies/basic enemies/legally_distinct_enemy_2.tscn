@@ -14,7 +14,7 @@ size = Vector2(20, 23)
 size = Vector2(20, 11)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ayhuk"]
-size = Vector2(20, 23)
+size = Vector2(14, 20)
 
 [sub_resource type="Animation" id="Animation_8co5n"]
 resource_name = "JUMP"
@@ -120,7 +120,6 @@ debug_color = Color(1.68458e-06, 0.636292, 0.406711, 0.42)
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHurtbox"]
-position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_ayhuk")
 debug_color = Color(0.984526, 0, 0.342716, 0.42)
 

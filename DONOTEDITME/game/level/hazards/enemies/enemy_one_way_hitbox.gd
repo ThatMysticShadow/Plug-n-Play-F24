@@ -21,9 +21,7 @@ func _on_hitbox_entered(other: Area2D):
 	if other is PlayerHitbox:
 		return
 	
-	var direction = global_position - other.global_position
-	direction = direction.normalized()
-	if direction.y <= 0.5:
+	if global_position.y - other.global_position.y < 15:
 		return
 	
 	var source = other.get_parent()

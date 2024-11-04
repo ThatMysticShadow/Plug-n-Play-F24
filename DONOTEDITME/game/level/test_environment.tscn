@@ -14,6 +14,9 @@ script = ExtResource("1_gk2hi")
 
 [node name="Player" parent="." instance=ExtResource("1_uj18h")]
 unique_name_in_owner = true
+editor_description = "This is a very basic implementation of the player controller which has horizontal movement, jumping, some sounds and an animated sprite. DO NOT modify this packed scene or the player.gd script. You should instead create a script that extends the Player class and make a copy of the player.tscn file to create your own custom player functionality.
+
+NOTE: Make sure in your level"
 position = Vector2(279, 386)
 max_horizontal_speed = 300.0
 acceleration = 2000.0
