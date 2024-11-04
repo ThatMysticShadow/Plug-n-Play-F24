@@ -3,4 +3,5 @@
 [ext_resource type="Script" path="res://DONOTEDITME/game/system/sound_player.gd" id="1_w7ell"]
 
 [node name="SoundPlayer" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_w7ell")

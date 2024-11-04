@@ -15,7 +15,14 @@ func reload_level() -> void:
 
 ## Method stub for me to implement later when stringing all the levels together
 func load_level(level: PackedScene) -> void:
-	pass
+	get_tree().paused = true
+	animation_player.play("CLOSE")
+
+
+## This method is called when a level is ended
+func end_level() -> void:
+	get_tree().paused = true
+	animation_player.play("CLOSE")
 
 
 func _on_animation_finished(anim_name):

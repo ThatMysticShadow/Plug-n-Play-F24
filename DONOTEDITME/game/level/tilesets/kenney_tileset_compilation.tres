@@ -1,10 +1,11 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://b7temyiqwjg58"]
+[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://b7temyiqwjg58"]
 
-[ext_resource type="Texture2D" uid="uid://c2r6tbugyj2r" path="res://DONOTEDITME/game/level/ground_tilemap.png" id="1_kbb6j"]
-[ext_resource type="PackedScene" uid="uid://bl3agpu5ucmfe" path="res://DONOTEDITME/game/level/hazards/tiles/spike.tscn" id="2_gi4oo"]
+[ext_resource type="Texture2D" uid="uid://c2r6tbugyj2r" path="res://DONOTEDITME/assets/tilesheets/ground_tilemap.png" id="1_ycm0l"]
+[ext_resource type="PackedScene" uid="uid://bl3agpu5ucmfe" path="res://DONOTEDITME/game/level/hazards/tiles/spike.tscn" id="2_k0ym7"]
+[ext_resource type="PackedScene" uid="uid://bipl7yj7vdf1m" path="res://DONOTEDITME/game/level/level_end_marker.tscn" id="3_vwjd4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1yibq"]
-texture = ExtResource("1_kbb6j")
+texture = ExtResource("1_ycm0l")
 separation = Vector2i(1, 1)
 texture_region_size = Vector2i(18, 18)
 0:0/0 = 0
@@ -1549,7 +1550,11 @@ texture_region_size = Vector2i(18, 18)
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_o5ct7"]
 resource_name = "Hazards"
-scenes/1/scene = ExtResource("2_gi4oo")
+scenes/1/scene = ExtResource("2_k0ym7")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_u87xy"]
+resource_name = "LevelElements"
+scenes/1/scene = ExtResource("3_vwjd4")
 
 [resource]
 tile_size = Vector2i(18, 18)
@@ -1582,3 +1587,4 @@ terrain_set_0/terrain_11/name = "Yellow Tree"
 terrain_set_0/terrain_11/color = Color(0.836839, 0.569144, 3.85046e-07, 1)
 sources/0 = SubResource("TileSetAtlasSource_1yibq")
 sources/1 = SubResource("TileSetScenesCollectionSource_o5ct7")
+sources/2 = SubResource("TileSetScenesCollectionSource_u87xy")

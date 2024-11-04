@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c2r6tbugyj2r"
-path="res://.godot/imported/ground_tilemap.png-215883494c46c2fc6553498e2da501bf.ctex"
+path="res://.godot/imported/ground_tilemap.png-8bf1fd635286bb6947dcde86a5391fda.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://DONOTEDITME/game/level/ground_tilemap.png"
-dest_files=["res://.godot/imported/ground_tilemap.png-215883494c46c2fc6553498e2da501bf.ctex"]
+source_file="res://DONOTEDITME/assets/tilesheets/ground_tilemap.png"
+dest_files=["res://.godot/imported/ground_tilemap.png-8bf1fd635286bb6947dcde86a5391fda.ctex"]
 
 [params]
 

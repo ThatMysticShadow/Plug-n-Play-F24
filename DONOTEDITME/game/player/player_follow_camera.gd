@@ -23,6 +23,6 @@ func _process(delta):
 	queue_redraw()
 
 func _draw():
-	var top_left = Vector2(min_x, min_y) - global_position
-	
-	draw_rect(Rect2(top_left, Vector2(max_x - min_x, max_y - min_y)), Color.RED, false, 3.0)
+	if Engine.is_editor_hint():
+		var top_left = Vector2(min_x, min_y) - global_position
+		draw_rect(Rect2(top_left, Vector2(max_x - min_x, max_y - min_y)), Color.RED, false, 3.0)

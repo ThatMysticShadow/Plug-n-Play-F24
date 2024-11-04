@@ -5,3 +5,4 @@
 [node name="Level" type="Node2D"]
 
 [node name="PauseMenu" parent="." instance=ExtResource("1_1g07d")]
+unique_name_in_owner = true

@@ -42,11 +42,16 @@ const STOP_VELOCITY_THRSHOLD: float = 0.01
 ## The contact damage that the player deals
 @export var contact_damage: float = 1
 
-@export_category("Sound Config")
+## NOTE: YOU DO NOT HAVE TO USE ANY OF THESE SOUNDS, THIS IS JUST FOR DEFAULT BEHAVIOR
+@export_category("Default Sound Config")
 ## The sound clip to be played when the player is walking
 @export var footstep_sound: AudioStream
 ## The time between footsteps
 @export var footstep_max_time: float = 0.1
+
+@export var jump_sound: AudioStream
+
+@export var hit_sound: AudioStream
 
 # Player State
 var current_health: float
@@ -84,6 +89,7 @@ func _physics_process(delta):
 	
 	# Check if the player can jump and execute the jump function if so
 	if Input.is_action_just_pressed("player_jump") and can_jump():
+		sound_player.play_sound(jump_sound, global_position)
 		jump()
 	
 	# Apply gravity if the player is not grounded
@@ -139,6 +145,7 @@ func can_jump() -> bool:
 ## The default damage method for the player. Simply subtracts the amount from the
 ## player's current health.
 func damage(amount: float) -> void:
+	sound_player.play_sound(hit_sound, global_position) # Assume when this is being called we are taking damage
 	current_health -= amount
 	current_health = clampf(current_health, 0, max_health)
 	check_death()
@@ -155,4 +162,5 @@ func check_death() -> void:
 ## This function is given to the player under the assumption that the player can deal
 ## contact damage to the enemies somehow (i.e. jumping on the enemy).
 func get_source_damage() -> float:
+	sound_player.play_sound(hit_sound, global_position) # Assume when this is being called we are dealing damage
 	return contact_damage
