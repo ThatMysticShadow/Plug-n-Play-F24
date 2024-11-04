@@ -3,7 +3,7 @@ extends Node
 ## reference the sound_player object which provides you with a method to play a oneshot sound effect
 class_name SoundPlayer
 
-@onready var sound_player = preload("res://base/game/system/sound_effect.tscn")
+@onready var sound_player = preload("res://DONOTEDITME/game/system/sound_effect.tscn")
 
 ## Call this and provide an audio stream and a position for the sound to play a 
 ## one shot sound.

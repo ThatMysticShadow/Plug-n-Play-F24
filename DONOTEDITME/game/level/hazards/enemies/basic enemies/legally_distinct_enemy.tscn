@@ -36,7 +36,7 @@ editor_description = "This is one of two enemy hitboxes that the LegallyDistinct
 
 2. Only the Player bit is selected in the collision mask (this only detects player colliders, not player projectiles)"
 collision_layer = 4
-collision_mask = 33
+collision_mask = 32
 script = ExtResource("3_lfxad")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyContactHitbox"]
@@ -51,7 +51,6 @@ editor_description = "This is one of two enemy hitboxes that the LegallyDistinct
 2. Only the Player bit is selected in the collision mask (this only detects player colliders, not player projectiles)"
 position = Vector2(0, 8)
 collision_layer = 4
-collision_mask = 33
 script = ExtResource("4_o6opj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyOneWayHitbox"]

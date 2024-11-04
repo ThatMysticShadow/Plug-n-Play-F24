@@ -16,6 +16,7 @@ script = ExtResource("2_ebjth")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 editor_description = "This is the player sprite. Nothing too fancy"
+z_index = 1
 scale = Vector2(0.16, 0.16)
 texture = ExtResource("1_ivfgi")
 
