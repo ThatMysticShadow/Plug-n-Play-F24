@@ -1,9 +1,160 @@
-[gd_scene format=3 uid="uid://cavhiq8b25tph"]
+[gd_scene load_steps=8 format=3 uid="uid://cavhiq8b25tph"]
+
+[ext_resource type="Script" path="res://base/menu/pause_menu.gd" id="1_6uco4"]
+[ext_resource type="Shader" path="res://base/assets/shaders/gaussian_blur.gdshader" id="2_k3ki6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eg130"]
+shader = ExtResource("2_k3ki6")
+shader_parameter/screen_offset = null
+shader_parameter/strength = 0.0
+
+[sub_resource type="Animation" id="Animation_fjdi3"]
+resource_name = "OPEN"
+length = 0.3
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlurLayer/Blur:material:shader_parameter/strength")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.1, 44, 40, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MenuElements/ColorRect:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-600, -0.15, 0, 0.15, 0, 74, -0.15, 0, 0.15, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+
+[sub_resource type="Animation" id="Animation_ickw8"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlurLayer/Blur:material:shader_parameter/strength")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MenuElements/ColorRect:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-600, -0.15, 0, 0.15, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_igjy2"]
+resource_name = "CLOSE"
+length = 0.3
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlurLayer/Blur:material:shader_parameter/strength")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(40, -0.25, 0, 0.1, 44, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MenuElements/ColorRect:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(74, -0.15, 0, 0.15, 0, -600, -0.15, 0, 0.15, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_47jph"]
+_data = {
+"CLOSE": SubResource("Animation_igjy2"),
+"OPEN": SubResource("Animation_fjdi3"),
+"RESET": SubResource("Animation_ickw8")
+}
 
 [node name="PauseMenu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_6uco4")
+
+[node name="BlurLayer" type="CanvasLayer" parent="."]
+
+[node name="Blur" type="ColorRect" parent="BlurLayer"]
+material = SubResource("ShaderMaterial_eg130")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuElements" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="MenuElements"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -375.0
+offset_top = -250.0
+offset_right = 375.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2478, 0.59, 0.36757, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuElements/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.228
+anchor_top = 0.469
+anchor_right = 0.772
+anchor_bottom = 0.531
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ContinueButton" type="Button" parent="MenuElements/ColorRect/VBoxContainer"]
+layout_mode = 2
+text = "Continue Playing"
+
+[node name="ReturnButton" type="Button" parent="MenuElements/ColorRect/VBoxContainer"]
+layout_mode = 2
+text = "Return to Title"
+
+[node name="QuitButton3" type="Button" parent="MenuElements/ColorRect/VBoxContainer"]
+layout_mode = 2
+text = "Quit Game"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_47jph")
+}
+autoplay = "RESET"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_finished"]

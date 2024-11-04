@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://dl58qldrbrnkn"]
+[gd_scene load_steps=10 format=4 uid="uid://dl58qldrbrnkn"]
 
 [ext_resource type="Script" path="res://base/game/system/level.gd" id="1_gk2hi"]
 [ext_resource type="PackedScene" uid="uid://xb5i5ynpctpq" path="res://base/game/player/player.tscn" id="1_uj18h"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://bq7e6oma0o420" path="res://base/assets/sfx/impactWood_medium_000.ogg" id="3_afkqq"]
 [ext_resource type="Script" path="res://base/game/player/player_follow_camera.gd" id="4_eyu5g"]
 [ext_resource type="PackedScene" uid="uid://y44bnrolxlle" path="res://base/game/level/hazards/enemies/basic enemies/legally_distinct_enemy.tscn" id="5_e1d8i"]
+[ext_resource type="PackedScene" uid="uid://cavhiq8b25tph" path="res://base/menu/pause_menu.tscn" id="8_oc3ce"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7og8x"]
 size = Vector2(1172, 20)
@@ -49,3 +50,9 @@ max_y = 500.0
 
 [node name="LegallyDistinctEnemy" parent="." instance=ExtResource("5_e1d8i")]
 position = Vector2(402, 617)
+
+[node name="PauseMenu" parent="." instance=ExtResource("8_oc3ce")]
+offset_left = 174.0
+offset_top = 220.0
+offset_right = 174.0
+offset_bottom = 220.0
