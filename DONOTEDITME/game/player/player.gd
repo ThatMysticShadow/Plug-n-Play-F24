@@ -176,7 +176,7 @@ func update_animation() -> void:
 	if (!is_on_floor()):
 		anim_player.play("JUMP")
 	else:
-		if velocity.x < STOP_VELOCITY_THRSHOLD:
+		if abs(velocity.x) < STOP_VELOCITY_THRSHOLD:
 			anim_player.play("IDLE")
 		else:
 			anim_player.play("WALK")
