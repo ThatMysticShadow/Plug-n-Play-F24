@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cavhiq8b25tph"]
+[gd_scene load_steps=9 format=3 uid="uid://cavhiq8b25tph"]
 
 [ext_resource type="Script" path="res://DONOTEDITME/menu/pause_menu.gd" id="1_6uco4"]
 [ext_resource type="Shader" path="res://DONOTEDITME/assets/shaders/gaussian_blur.gdshader" id="2_k3ki6"]
+[ext_resource type="Theme" uid="uid://dicrejglob83v" path="res://DONOTEDITME/assets/menu/ui_theme.tres" id="3_bhwqx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_eg130"]
 shader = ExtResource("2_k3ki6")
@@ -121,23 +122,23 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -375.0
-offset_top = -250.0
+offset_top = -200.0
 offset_right = 375.0
-offset_bottom = 250.0
+offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_bhwqx")
 color = Color(0.2478, 0.59, 0.36757, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MenuElements/ColorRect"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.228
-anchor_top = 0.469
-anchor_right = 0.772
-anchor_bottom = 0.531
+anchor_left = 0.032
+anchor_top = 0.19
+anchor_right = 0.965333
+anchor_bottom = 0.79
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_use_anchors_ = true
 
 [node name="MasterVolumeSlider" type="HBoxContainer" parent="MenuElements/ColorRect/VBoxContainer"]
 layout_mode = 2

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bl3agpu5ucmfe"]
 
 [ext_resource type="Script" path="res://DONOTEDITME/game/level/hazards/tiles/hazard_tile.gd" id="1_06m7x"]
-[ext_resource type="Texture2D" uid="uid://idiuh5cvdvnn" path="res://DONOTEDITME/assets/tilesheets/tilemap.png" id="1_v87lg"]
+[ext_resource type="Texture2D" uid="uid://idiuh5cvdvnn" path="res://DONOTEDITME/assets/sprites/tilesheets/tilemap.png" id="1_v87lg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lme01"]
 atlas = ExtResource("1_v87lg")

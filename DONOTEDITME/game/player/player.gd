@@ -161,7 +161,7 @@ func damage(amount: float) -> void:
 ## functionality
 func check_death() -> void:
 	if current_health <= 0.0:
-		print("Player has died")
+		print_rich("[color=pink]Player has died")
 		level_loader.reload_level()
 
 

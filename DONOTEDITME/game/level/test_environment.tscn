@@ -1,28 +1,17 @@
-[gd_scene load_steps=11 format=4 uid="uid://dl58qldrbrnkn"]
+[gd_scene load_steps=10 format=4 uid="uid://dl58qldrbrnkn"]
 
 [ext_resource type="Script" path="res://DONOTEDITME/game/system/level.gd" id="1_gk2hi"]
 [ext_resource type="PackedScene" uid="uid://xb5i5ynpctpq" path="res://DONOTEDITME/game/player/player.tscn" id="1_uj18h"]
-[ext_resource type="AudioStream" uid="uid://d36on0uv7ae4c" path="res://DONOTEDITME/assets/sfx/footstep_grass_004.ogg" id="3_gibkq"]
+[ext_resource type="AudioStream" uid="uid://d36on0uv7ae4c" path="res://DONOTEDITME/assets/sounds/sfx/footstep_grass_004.ogg" id="3_gibkq"]
 [ext_resource type="Script" path="res://DONOTEDITME/game/player/player_follow_camera.gd" id="4_eyu5g"]
-[ext_resource type="AudioStream" uid="uid://bqxwc7jke7atw" path="res://DONOTEDITME/assets/sfx/jump.ogg" id="4_i172r"]
+[ext_resource type="AudioStream" uid="uid://bqxwc7jke7atw" path="res://DONOTEDITME/assets/sounds/sfx/jump.ogg" id="4_i172r"]
 [ext_resource type="TileSet" uid="uid://b7temyiqwjg58" path="res://DONOTEDITME/game/level/tilesets/kenney_tileset_compilation.tres" id="5_63qax"]
-[ext_resource type="AudioStream" uid="uid://ib4vciyhnfon" path="res://DONOTEDITME/assets/sfx/punch.ogg" id="5_c0c6g"]
+[ext_resource type="AudioStream" uid="uid://ib4vciyhnfon" path="res://DONOTEDITME/assets/sounds/sfx/punch.ogg" id="5_c0c6g"]
 [ext_resource type="PackedScene" uid="uid://y44bnrolxlle" path="res://DONOTEDITME/game/level/hazards/enemies/basic enemies/legally_distinct_enemy.tscn" id="5_e1d8i"]
 [ext_resource type="PackedScene" uid="uid://cavhiq8b25tph" path="res://DONOTEDITME/menu/pause_menu.tscn" id="8_n5aro"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7og8x"]
-size = Vector2(1172, 20)
-
 [node name="TestEnvironment" type="Node2D"]
 script = ExtResource("1_gk2hi")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_layer = 2
-collision_mask = 5
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(576, 641)
-shape = SubResource("RectangleShape2D_7og8x")
 
 [node name="Player" parent="." instance=ExtResource("1_uj18h")]
 unique_name_in_owner = true

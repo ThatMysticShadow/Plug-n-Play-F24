@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ofoqedjacn88"
-path="res://.godot/imported/jammy.png-747c52678e7d9c8af8d0331f9a8ce200.ctex"
+uid="uid://c2r6tbugyj2r"
+path="res://.godot/imported/ground_tilemap.png-e49aff227172c33049a9178a9ccb59b4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://DONOTEDITME/assets/player/jammy.png"
-dest_files=["res://.godot/imported/jammy.png-747c52678e7d9c8af8d0331f9a8ce200.ctex"]
+source_file="res://DONOTEDITME/assets/sprites/tilesheets/ground_tilemap.png"
+dest_files=["res://.godot/imported/ground_tilemap.png-e49aff227172c33049a9178a9ccb59b4.ctex"]
 
 [params]
 

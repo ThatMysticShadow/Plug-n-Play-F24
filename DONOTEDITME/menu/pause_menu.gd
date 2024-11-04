@@ -17,7 +17,6 @@ func _ready():
 	set_focus_mode(Control.FOCUS_ALL)
 	sfx_slider.value = sfx_slider.max_value * sound_player.DEFAULT_SFX_VOL
 	master_slider.value = master_slider.max_value * sound_player.DEFAULT_MASTER_VOL
-	print(sound_player.master_curr_vol)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

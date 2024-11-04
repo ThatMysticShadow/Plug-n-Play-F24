@@ -1,6 +1,6 @@
 [gd_resource type="TileSet" load_steps=7 format=3 uid="uid://b7temyiqwjg58"]
 
-[ext_resource type="Texture2D" uid="uid://c2r6tbugyj2r" path="res://DONOTEDITME/assets/tilesheets/ground_tilemap.png" id="1_ycm0l"]
+[ext_resource type="Texture2D" uid="uid://c2r6tbugyj2r" path="res://DONOTEDITME/assets/sprites/tilesheets/ground_tilemap.png" id="1_ycm0l"]
 [ext_resource type="PackedScene" uid="uid://bl3agpu5ucmfe" path="res://DONOTEDITME/game/level/hazards/tiles/spike.tscn" id="2_k0ym7"]
 [ext_resource type="PackedScene" uid="uid://bipl7yj7vdf1m" path="res://DONOTEDITME/game/level/level_end_marker.tscn" id="3_vwjd4"]
 
