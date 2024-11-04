@@ -36,7 +36,7 @@ editor_description = "This is one of two enemy hitboxes that the LegallyDistinct
 
 2. Only the Player bit is selected in the collision mask (this only detects player colliders, not player projectiles)"
 collision_layer = 4
-collision_mask = 32
+collision_mask = 40
 script = ExtResource("3_lfxad")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyContactHitbox"]
@@ -65,6 +65,13 @@ collision_layer = 4
 shape = SubResource("RectangleShape2D_ayhuk")
 debug_color = Color(0.984526, 0, 0.342716, 0.42)
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
+[node name="WallDetector" type="RayCast2D" parent="."]
 rotation = -1.00938
-target_position = Vector2(-4.90355, 27.8918)
+target_position = Vector2(12.2449, 19.4695)
+collision_mask = 2
+
+[node name="GroundBlockDetector" type="RayCast2D" parent="."]
+rotation = -1.0088
+target_position = Vector2(0.612112, 29.1483)
+collision_mask = 10
+collide_with_areas = true

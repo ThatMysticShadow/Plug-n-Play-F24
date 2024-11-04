@@ -23,6 +23,7 @@ func _on_hitbox_entered(other: Area2D):
 	
 	var direction = global_position - other.global_position
 	direction = direction.normalized()
+	print(direction.y)
 	if direction.y <= 0:
 		return
 	
