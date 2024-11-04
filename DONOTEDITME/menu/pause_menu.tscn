@@ -186,6 +186,11 @@ size_flags_stretch_ratio = 4.49
 layout_mode = 2
 text = "Controls"
 
+[node name="FullScreenButton" type="Button" parent="MenuElements/ColorRect/VBoxContainer"]
+layout_mode = 2
+text = "Toggle Fullscreen
+"
+
 [node name="RestartButton" type="Button" parent="MenuElements/ColorRect/VBoxContainer"]
 layout_mode = 2
 text = "Restart Level"
@@ -198,7 +203,7 @@ text = "Continue Playing"
 layout_mode = 2
 text = "Return to Title"
 
-[node name="QuitButton3" type="Button" parent="MenuElements/ColorRect/VBoxContainer"]
+[node name="QuitButton" type="Button" parent="MenuElements/ColorRect/VBoxContainer"]
 layout_mode = 2
 text = "Quit Game"
 
@@ -210,4 +215,8 @@ autoplay = "RESET"
 
 [connection signal="value_changed" from="MenuElements/ColorRect/VBoxContainer/MasterVolumeSlider/HSlider" to="." method="_on_master_slider_changed"]
 [connection signal="value_changed" from="MenuElements/ColorRect/VBoxContainer/SFXSlider/HSlider" to="." method="_on_sfx_slider_changed"]
+[connection signal="pressed" from="MenuElements/ColorRect/VBoxContainer/FullScreenButton" to="." method="_on_fullscreen_press"]
+[connection signal="pressed" from="MenuElements/ColorRect/VBoxContainer/RestartButton" to="." method="_on_restart_press"]
+[connection signal="pressed" from="MenuElements/ColorRect/VBoxContainer/ContinueButton" to="." method="_on_continue_press"]
+[connection signal="pressed" from="MenuElements/ColorRect/VBoxContainer/QuitButton" to="." method="_on_quit_press"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_finished"]

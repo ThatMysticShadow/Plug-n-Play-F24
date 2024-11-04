@@ -50,3 +50,23 @@ func _on_sfx_slider_changed(value: float):
 	
 func _on_master_slider_changed(value: float):
 	sound_player.update_sound(self)
+
+# Button Scripts
+
+func _on_quit_press() -> void:
+	get_tree().quit()
+
+
+func _on_fullscreen_press() -> void:
+	if (DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED):
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+
+
+func _on_continue_press() -> void:
+	anim_player.play("CLOSE")
+
+
+func _on_restart_press() -> void:
+	level_loader.reload_level()
