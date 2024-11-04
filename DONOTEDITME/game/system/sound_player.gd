@@ -43,7 +43,7 @@ func _on_effect_finished(player: AudioStreamPlayer2D):
 	player.queue_free()
 
 func compute_sfx_volume() -> float:
-	if sfx_curr_vol == 0:
+	if sfx_curr_vol == 0 || master_curr_vol == 0:
 		return -20
 	return (sfx_max_vol - sfx_min_vol) * sfx_curr_vol * master_curr_vol + sfx_min_vol
 
