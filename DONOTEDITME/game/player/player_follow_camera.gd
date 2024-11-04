@@ -1,3 +1,4 @@
+@tool
 extends Camera2D
 ## This camera dynamically follows the player and can be configured to fixed level
 ## bounds. You should not need to modify this code, HOWEVER, you can dynamically change the
@@ -19,3 +20,9 @@ func _ready():
 func _process(delta):
 	position.x = clampf(%Player.global_position.x, min_x, max_x)
 	position.y = clampf(%Player.global_position.y, min_y, max_y)
+	queue_redraw()
+
+func _draw():
+	var top_left = Vector2(min_x, min_y) - global_position
+	
+	draw_rect(Rect2(top_left, Vector2(max_x - min_x, max_y - min_y)), Color.RED, false, 3.0)

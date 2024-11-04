@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://xb5i5ynpctpq"]
 
 [ext_resource type="Texture2D" uid="uid://8o3jadyhldst" path="res://icon.svg" id="1_ivfgi"]
-[ext_resource type="Script" path="res://base/game/player/player.gd" id="2_ebjth"]
-[ext_resource type="PackedScene" uid="uid://c1jwyvxr2ohvb" path="res://base/game/player/player_hitbox.tscn" id="3_oihoa"]
-[ext_resource type="Script" path="res://base/game/player/player_hitbox.gd" id="4_u5s6u"]
+[ext_resource type="Script" path="res://DONOTEDITME/game/player/player.gd" id="2_ebjth"]
+[ext_resource type="PackedScene" uid="uid://c1jwyvxr2ohvb" path="res://DONOTEDITME/game/player/player_hitbox.tscn" id="3_oihoa"]
+[ext_resource type="Script" path="res://DONOTEDITME/game/player/player_hitbox.gd" id="4_u5s6u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_md56h"]
 

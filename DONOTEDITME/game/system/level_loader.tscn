@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dajyvpt4404ft"]
 
-[ext_resource type="Script" path="res://base/game/system/level_loader.gd" id="1_uvpqj"]
-[ext_resource type="Shader" path="res://base/assets/shaders/diamond_sweep.gdshader" id="2_4icfv"]
+[ext_resource type="Script" path="res://DONOTEDITME/game/system/level_loader.gd" id="1_uvpqj"]
+[ext_resource type="Shader" path="res://DONOTEDITME/assets/shaders/diamond_sweep.gdshader" id="2_4icfv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v61qb"]
 shader = ExtResource("2_4icfv")

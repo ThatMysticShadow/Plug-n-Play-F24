@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://idiuh5cvdvnn"
-path="res://.godot/imported/tilemap.png-e3a5a4dd9bfeb231469fcf3467b5a565.ctex"
+uid="uid://c2r6tbugyj2r"
+path="res://.godot/imported/ground_tilemap.png-215883494c46c2fc6553498e2da501bf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://base/assets/tilesheets/tilemap.png"
-dest_files=["res://.godot/imported/tilemap.png-e3a5a4dd9bfeb231469fcf3467b5a565.ctex"]
+source_file="res://DONOTEDITME/game/level/ground_tilemap.png"
+dest_files=["res://.godot/imported/ground_tilemap.png-215883494c46c2fc6553498e2da501bf.ctex"]
 
 [params]
 
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

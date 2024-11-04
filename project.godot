@@ -16,8 +16,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-level_loader="*res://base/game/system/level_loader.tscn"
-sound_player="*res://base/game/system/sound_player.tscn"
+level_loader="*res://DONOTEDITME/game/system/level_loader.tscn"
+sound_player="*res://DONOTEDITME/game/system/sound_player.tscn"
 
 [display]
 
