@@ -48,10 +48,13 @@ const STOP_VELOCITY_THRSHOLD: float = 0.01
 @export var footstep_sound: AudioStream
 ## The time between footsteps
 @export var footstep_max_time: float = 0.1
-
+## The jump sound effect
 @export var jump_sound: AudioStream
-
+## The hit sound effect
 @export var hit_sound: AudioStream
+
+@onready var anim_player: AnimationPlayer = $AnimationPlayer
+@onready var sprite: Sprite2D = $Sprite2D
 
 # Player State
 var current_health: float
@@ -95,6 +98,9 @@ func _physics_process(delta):
 	# Apply gravity if the player is not grounded
 	if !is_on_floor():
 		apply_gravity(delta)
+	
+	# Update the player's animation
+	update_animation()
 	
 	# Call this function to move the player based on all modifications to the player's velocity
 	move_and_slide()
@@ -164,3 +170,15 @@ func check_death() -> void:
 func get_source_damage() -> float:
 	sound_player.play_sound(hit_sound, global_position) # Assume when this is being called we are dealing damage
 	return contact_damage
+
+
+func update_animation() -> void:
+	if (!is_on_floor()):
+		anim_player.play("JUMP")
+	else:
+		if velocity.x < STOP_VELOCITY_THRSHOLD:
+			anim_player.play("IDLE")
+		else:
+			anim_player.play("WALK")
+			
+	sprite.flip_h = true if sign(velocity.x) < 0 else (false if sign(velocity.x) > 0  else sprite.flip_h)
