@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 ## DO NOT TOUCH THIS CODE AT ALL. You should not need to modidy the pause screen.
 class_name PauseMenu
 
@@ -14,7 +14,6 @@ var loaded = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	set_focus_mode(Control.FOCUS_ALL)
 	sfx_slider.value = sfx_slider.max_value * sound_player.DEFAULT_SFX_VOL
 	master_slider.value = master_slider.max_value * sound_player.DEFAULT_MASTER_VOL
 
@@ -40,8 +39,8 @@ func _on_animation_finished(anim_name):
 	if anim_name == "OPEN":
 		focus_button.grab_focus()
 	else:
-		grab_focus()
-		release_focus()
+		focus_button.grab_focus()
+		focus_button.release_focus()
 		get_tree().paused = false
 
 

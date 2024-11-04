@@ -93,14 +93,8 @@ _data = {
 "RESET": SubResource("Animation_ickw8")
 }
 
-[node name="PauseMenu" type="Control"]
+[node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 script = ExtResource("1_6uco4")
 
 [node name="BlurLayer" type="CanvasLayer" parent="."]
