@@ -1,6 +1,6 @@
 [gd_resource type="TileSet" load_steps=5 format=3 uid="uid://bfn4lqenq81v"]
 
-[ext_resource type="Texture2D" uid="uid://idiuh5cvdvnn" path="res://base/assets/tilemap.png" id="1_nbhgw"]
+[ext_resource type="Texture2D" uid="uid://idiuh5cvdvnn" path="res://base/assets/tilesheets/tilemap.png" id="1_nbhgw"]
 [ext_resource type="PackedScene" uid="uid://bl3agpu5ucmfe" path="res://base/game/level/hazards/tiles/spike.tscn" id="2_s2xj4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0wtvv"]

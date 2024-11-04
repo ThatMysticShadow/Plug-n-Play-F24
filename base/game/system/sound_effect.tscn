@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://y1pa7n0bldy3"]
+
+[node name="SoundEffect" type="AudioStreamPlayer2D"]

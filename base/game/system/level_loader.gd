@@ -5,11 +5,24 @@ extends Node
 ## and at the end of the default kill screen animation.
 class_name LevelLoader
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
 ## Call this function to reload the scene
 func reload_level() -> void:
-	var _reload = get_tree().reload_current_scene()
+	get_tree().paused = true
+	animation_player.play("CLOSE")
 
 
 ## Method stub for me to implement later when stringing all the levels together
 func load_level(level: PackedScene) -> void:
 	pass
+
+
+func _on_animation_finished(anim_name):
+	if anim_name == "CLOSE":
+		var _reload = get_tree().reload_current_scene()
+
+
+func _on_scene_loaded():
+	get_tree().paused = false
+	animation_player.play("OPEN")
