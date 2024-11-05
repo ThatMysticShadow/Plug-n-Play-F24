@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=4 uid="uid://dl58qldrbrnkn"]
+[gd_scene load_steps=13 format=4 uid="uid://dl58qldrbrnkn"]
 
 [ext_resource type="Script" path="res://DONOTEDITME/game/system/level.gd" id="1_gk2hi"]
 [ext_resource type="PackedScene" uid="uid://xb5i5ynpctpq" path="res://DONOTEDITME/game/player/player.tscn" id="1_uj18h"]
+[ext_resource type="AudioStream" uid="uid://c87t4mso8y1dw" path="res://DONOTEDITME/assets/sounds/music/Monkeys_Spinning_Monkeys_by_Kevin_MacLeod.ogg" id="2_ckc6v"]
 [ext_resource type="AudioStream" uid="uid://d36on0uv7ae4c" path="res://DONOTEDITME/assets/sounds/sfx/footstep_grass_004.ogg" id="3_gibkq"]
 [ext_resource type="Script" path="res://DONOTEDITME/game/player/player_follow_camera.gd" id="4_eyu5g"]
 [ext_resource type="AudioStream" uid="uid://bqxwc7jke7atw" path="res://DONOTEDITME/assets/sounds/sfx/jump.ogg" id="4_i172r"]
@@ -14,6 +15,7 @@
 
 [node name="TestEnvironment" type="Node2D"]
 script = ExtResource("1_gk2hi")
+music_track = ExtResource("2_ckc6v")
 
 [node name="Player" parent="." instance=ExtResource("1_uj18h")]
 unique_name_in_owner = true
@@ -51,27 +53,27 @@ unique_name_in_owner = true
 scale = Vector2(5, 5)
 transform = Transform2D(5, 0, 0, 5, 0, 0)
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxLayerBack" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.05, 0)
 motion_mirroring = Vector2(48, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayerBack"]
 texture = ExtResource("9_fsueq")
 centered = false
 
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxLayerMid" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.07, 0)
 motion_mirroring = Vector2(48, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayerMid"]
 texture = ExtResource("10_hbjpi")
 centered = false
 
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxLayerFront" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.1, 0)
 motion_mirroring = Vector2(48, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayerFront"]
 texture = ExtResource("11_lvbyy")
 centered = false
 
