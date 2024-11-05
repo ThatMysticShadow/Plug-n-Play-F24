@@ -203,8 +203,9 @@ libraries = {
 }
 autoplay = "RESET"
 
-[connection signal="value_changed" from="MenuElements/ColorRect/VBoxContainer/MasterVolumeSlider/HSlider" to="." method="_on_master_slider_changed"]
-[connection signal="value_changed" from="MenuElements/ColorRect/VBoxContainer/SFXSlider/HSlider" to="." method="_on_sfx_slider_changed"]
+[connection signal="value_changed" from="MenuElements/ColorRect/VBoxContainer/MasterVolumeSlider/HSlider" to="." method="_on_slider_changed"]
+[connection signal="value_changed" from="MenuElements/ColorRect/VBoxContainer/SFXSlider/HSlider" to="." method="_on_slider_changed"]
+[connection signal="value_changed" from="MenuElements/ColorRect/VBoxContainer/MusicSlider/HSlider" to="." method="_on_slider_changed"]
 [connection signal="pressed" from="MenuElements/ColorRect/VBoxContainer/FullScreenButton" to="." method="_on_fullscreen_press"]
 [connection signal="pressed" from="MenuElements/ColorRect/VBoxContainer/RestartButton" to="." method="_on_restart_press"]
 [connection signal="pressed" from="MenuElements/ColorRect/VBoxContainer/ContinueButton" to="." method="_on_continue_press"]

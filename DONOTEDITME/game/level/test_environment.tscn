@@ -15,7 +15,7 @@
 
 [node name="TestEnvironment" type="Node2D"]
 script = ExtResource("1_gk2hi")
-music_track = ExtResource("2_ckc6v")
+music_stream = ExtResource("2_ckc6v")
 
 [node name="Player" parent="." instance=ExtResource("1_uj18h")]
 unique_name_in_owner = true

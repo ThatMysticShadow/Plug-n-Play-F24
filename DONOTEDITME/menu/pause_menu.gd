@@ -9,6 +9,7 @@ class_name PauseMenu
 # Volume Sliders
 @onready var master_slider: Slider = $MenuElements/ColorRect/VBoxContainer/MasterVolumeSlider/HSlider
 @onready var sfx_slider: Slider = $MenuElements/ColorRect/VBoxContainer/SFXSlider/HSlider
+@onready var music_slider: Slider = $MenuElements/ColorRect/VBoxContainer/MusicSlider/HSlider
 
 var loaded = false
 
@@ -16,6 +17,7 @@ var loaded = false
 func _ready():
 	sfx_slider.value = sfx_slider.max_value * sound_player.sfx_curr_vol
 	master_slider.value = master_slider.max_value * sound_player.master_curr_vol
+	music_slider.value = music_slider.max_value * sound_player.music_curr_vol
 	loaded = true
 
 
@@ -35,6 +37,9 @@ func get_sfx_volume():
 func get_master_volume():
 	return master_slider.value / master_slider.max_value
 
+func get_music_volume():
+	return music_slider.value / music_slider.max_value
+
 
 func _on_animation_finished(anim_name):
 	if anim_name == "OPEN":
@@ -45,13 +50,10 @@ func _on_animation_finished(anim_name):
 		get_tree().paused = false
 
 
-func _on_sfx_slider_changed(value: float):
+func _on_slider_changed(value: float):
 	if loaded:
 		sound_player.update_sound(self)
-	
-func _on_master_slider_changed(value: float):
-	if loaded: 
-		sound_player.update_sound(self)
+
 
 # Button Scripts
 
