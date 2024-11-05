@@ -1,10 +1,33 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2mqcqump028e"]
+[gd_scene load_steps=6 format=4 uid="uid://c2mqcqump028e"]
 
 [ext_resource type="PackedScene" uid="uid://cavhiq8b25tph" path="res://DONOTEDITME/menu/pause_menu.tscn" id="1_1g07d"]
 [ext_resource type="Script" path="res://DONOTEDITME/game/system/level.gd" id="1_fnfqx"]
+[ext_resource type="TileSet" uid="uid://b7temyiqwjg58" path="res://DONOTEDITME/game/level/tilesets/kenney_tileset_compilation.tres" id="3_vjomw"]
+[ext_resource type="PackedScene" uid="uid://xb5i5ynpctpq" path="res://DONOTEDITME/game/player/player.tscn" id="4_jtnki"]
+[ext_resource type="PackedScene" uid="uid://xrv5a4vk77ic" path="res://DONOTEDITME/game/player/player_follow_camera.tscn" id="5_iu87s"]
 
 [node name="Level" type="Node2D"]
+editor_description = "This is the base scene for your level! Your level must at the very least contain the following objects:
+1. A PauseMenu instance
+2. A level end marker (either as an individual scene or part of a tilemap)
+3. A Player (or some object that extends the Player class)
+4. A PlayerFollowCamera
+
+In addition, you must mark the player as accessible by unique name (Right Click -> Access by unique name) and set its node name to \"Player\". The same has already been done for you with the PauseMenu.
+
+These are the base things you need to do in order for your project to function and be slotted into the final game. Otherwise you have relatively free reign. Be sure to take a look at test_environment.tscn in the DONOTEDITME folder for an example of what a level can look like and some of the features I have already implemented for you. Read the descriptions and documentation for any scenes and objects I have already premade. Ask any questions in the Discord if you have any. DO NOT EDIT ANYTHING IN THE \"DONOTEDITME\" FOLDER. I cannot guarantee I'll be able to merge your level into the final project if you do."
 script = ExtResource("1_fnfqx")
 
 [node name="PauseMenu" parent="." instance=ExtResource("1_1g07d")]
 unique_name_in_owner = true
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAA7AB4AAgAAAAAAAQA/AB8AAAADAAAAAAA+AB8AAAACAAAAAAA9AB8AAAACAAAAAAA8AB8AAAACAAAAAAA7AB8AAAACAAAAAAA6AB8AAAACAAAAAAA5AB8AAAACAAAAAAA4AB8AAAACAAAAAAA3AB8AAAACAAAAAAA2AB8AAAACAAAAAAA1AB8AAAACAAAAAAA0AB8AAAACAAAAAAAzAB8AAAACAAAAAAAyAB8AAAACAAAAAAAxAB8AAAACAAAAAAAwAB8AAAACAAAAAAAvAB8AAAACAAAAAAAuAB8AAAACAAAAAAAtAB8AAAACAAAAAAAsAB8AAAACAAAAAAArAB8AAAACAAAAAAAqAB8AAAACAAAAAAApAB8AAAACAAAAAAAoAB8AAAACAAAAAAAnAB8AAAACAAAAAAAmAB8AAAACAAAAAAAlAB8AAAACAAAAAAAkAB8AAAACAAAAAAAjAB8AAAACAAAAAAAiAB8AAAACAAAAAAAhAB8AAAACAAAAAAAgAB8AAAACAAAAAAAfAB8AAAACAAAAAAAeAB8AAAACAAAAAAAdAB8AAAACAAAAAAAcAB8AAAACAAAAAAAbAB8AAAACAAAAAAAaAB8AAAACAAAAAAAZAB8AAAACAAAAAAAYAB8AAAACAAAAAAAXAB8AAAACAAAAAAAWAB8AAAACAAAAAAAVAB8AAAACAAAAAAAUAB8AAAACAAAAAAATAB8AAAACAAAAAAASAB8AAAACAAAAAAARAB8AAAACAAAAAAAQAB8AAAACAAAAAAAPAB8AAAACAAAAAAAOAB8AAAACAAAAAAANAB8AAAACAAAAAAAMAB8AAAACAAAAAAALAB8AAAACAAAAAAAKAB8AAAACAAAAAAAJAB8AAAACAAAAAAAIAB8AAAACAAAAAAAHAB8AAAACAAAAAAAGAB8AAAACAAAAAAAFAB8AAAACAAAAAAAEAB8AAAACAAAAAAADAB8AAAACAAAAAAACAB8AAAACAAAAAAABAB8AAAACAAAAAAAAAB8AAAABAAAAAAA=")
+tile_set = ExtResource("3_vjomw")
+
+[node name="Player" parent="." instance=ExtResource("4_jtnki")]
+unique_name_in_owner = true
+position = Vector2(115, 484)
+
+[node name="PlayerFollowCamera" parent="." instance=ExtResource("5_iu87s")]
+position = Vector2(115, 484)
