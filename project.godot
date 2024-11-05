@@ -12,6 +12,8 @@ config_version=5
 
 config/name="IGDA Plug n Play F24"
 config/features=PackedStringArray("4.3", "Forward Plus")
+boot_splash/bg_color=Color(0.0889109, 0.165117, 0.0125631, 1)
+boot_splash/image="res://icon.png"
 config/icon="res://icon.png"
 config/macos_native_icon="res://icon.icns"
 config/windows_native_icon="res://icon.ico"
