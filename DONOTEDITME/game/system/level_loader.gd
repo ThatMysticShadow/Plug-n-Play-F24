@@ -11,11 +11,12 @@ const LEVEL_END_TIME: float = 1
 
 var level_loaded: int = -1
 var loading = false
-var level_ended = false
+var reloading = false
 
 ## Call this function to reload the scene
 func reload_level() -> void:
 	get_tree().paused = true
+	reloading = true
 	animation_player.play("CLOSE")
 
 
@@ -28,15 +29,22 @@ func load_level(level: PackedScene) -> void:
 ## This method is called when a level is ended
 func end_level() -> void:
 	get_tree().paused = true
-	animation_player.play("CLOSE")
 	sound_player.unload_music_stream()
 	level_loaded = -1
-	level_ended = true
+	
+	var end_timer = get_tree().create_timer(LEVEL_END_TIME)
+	end_timer.timeout.connect(level_end_timer_end)
+
+
+func level_end_timer_end() -> void:
+	animation_player.play("CLOSE")
+	reload_level() # Temporary, replace with returning to the map later
 
 
 func _on_animation_finished(anim_name):
-	if anim_name == "CLOSE" and not level_ended:
+	if anim_name == "CLOSE" and reloading:
 		var _reload = get_tree().reload_current_scene()
+		reloading = false
 
 
 func _on_scene_loaded(level: Level):
@@ -44,6 +52,5 @@ func _on_scene_loaded(level: Level):
 	animation_player.play("OPEN")
 	
 	if level_loaded != level.level_id:
-		level_ended = false
 		sound_player.load_music_stream(level.music_stream)
 		level_loaded = level.level_id
