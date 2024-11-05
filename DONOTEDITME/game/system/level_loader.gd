@@ -32,6 +32,7 @@ func end_level() -> void:
 	sound_player.unload_music_stream()
 	level_loaded = -1
 	
+	sound_player.play_sound(load("res://DONOTEDITME/assets/sounds/sfx/win_fx.ogg"), Vector2(0, 0))
 	var end_timer = get_tree().create_timer(LEVEL_END_TIME)
 	end_timer.timeout.connect(level_end_timer_end)
 
