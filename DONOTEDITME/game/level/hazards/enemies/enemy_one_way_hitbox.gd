@@ -1,6 +1,8 @@
 @tool
 extends EnemyHitbox
-
+## A One Way Hitbox (for the goomba type enemy) that specifically only detects hitbox/hurtbox
+## interaction from the downward direction, meaning the player must be falling onto this Hitbox
+## to trigger a hit.
 class_name EnemyOneWayHitbox
 
 # Called when the node enters the scene tree for the first time.

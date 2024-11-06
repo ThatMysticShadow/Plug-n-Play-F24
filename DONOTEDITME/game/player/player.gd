@@ -172,6 +172,7 @@ func get_source_damage() -> float:
 	return contact_damage
 
 
+## Updates the animation state of the player.
 func update_animation() -> void:
 	if (!is_on_floor()):
 		anim_player.play("JUMP")

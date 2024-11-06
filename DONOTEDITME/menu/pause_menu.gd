@@ -2,7 +2,7 @@ extends CanvasLayer
 ## DO NOT TOUCH THIS CODE AT ALL. You should not need to modidy the pause screen.
 class_name PauseMenu
 
-
+# Other references
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var focus_button: Button = $MenuElements/ColorRect/VBoxContainer/ContinueButton
 
@@ -23,7 +23,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("ui_cancel"):
+	if Input.is_action_just_pressed("ui_cancel") and not level_loader.reloading and not level_loader.loading:
 		if not get_tree().paused:
 			anim_player.play("OPEN")
 			get_tree().paused = true
@@ -34,8 +34,10 @@ func _process(delta):
 func get_sfx_volume():
 	return sfx_slider.value / sfx_slider.max_value
 
+
 func get_master_volume():
 	return master_slider.value / master_slider.max_value
+
 
 func get_music_volume():
 	return music_slider.value / music_slider.max_value

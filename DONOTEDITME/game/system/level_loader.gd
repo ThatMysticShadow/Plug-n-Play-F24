@@ -2,7 +2,7 @@ extends Node
 ## This class is designed to be a singleton object for loading and reloading levels.
 ## The most important takeaway from this class is the reload level function which 
 ## reloads/restarts the level. This is called when you press "restart" in the pause menu
-## and at the end of the default kill screen animation.
+## and at the end of the default kill screen animation. YOU DO NOT NEED TO MODIFY THIS CLASS
 class_name LevelLoader
 
 const LEVEL_END_TIME: float = 1

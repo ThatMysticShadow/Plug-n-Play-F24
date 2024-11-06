@@ -9,11 +9,12 @@ class_name WalkingEnemy
 @export var gravity: float = 1000
 @export var jump_strength: float = 300
 
-@onready var ground_check: RayCast2D = $GroundBlockDetector
-@onready var wall_check: RayCast2D = $WallDetector
+@onready var ground_check: RayCast2D = $GroundBlockDetector # Raycaster for checking if there's still ground in front of us or if there's a hazard
+@onready var wall_check: RayCast2D = $WallDetector # Raycaster for detecting walls and turning or jumping
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 
+# Keep track of the enemy's direction
 var direction = 1
 
 func _ready():
@@ -50,9 +51,10 @@ func _physics_process(delta):
 	else:
 		anim_player.play("JUMP")
 
+
+## Called to flip the direction of the enemy and sprite
 func change_direction():
 	direction = -direction
 	ground_check.rotation = abs(ground_check.rotation) * -direction
 	wall_check.scale.x = abs(wall_check.scale.x) * direction
 	wall_check.scale.y = abs(wall_check.scale.y) * direction
-	
