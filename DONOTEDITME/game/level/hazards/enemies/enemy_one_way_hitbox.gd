@@ -8,11 +8,6 @@ func _ready():
 	area_entered.connect(_on_hitbox_entered)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
 ## This is the default hitbox detection behavior. It makes the assumption that the opposing hurtbox
 ## is a component/child of the object responsible for dealing damage to the enemy. It checks if that
 ## object has a get_source_damage() method and applies that damage to the enemy accordingly.
@@ -22,6 +17,9 @@ func _on_hitbox_entered(other: Area2D):
 		return
 	
 	if global_position.y - other.global_position.y < 15:
+		return
+	
+	if other.get_parent() is Player and other.get_parent().velocity.y <= 0:
 		return
 	
 	var source = other.get_parent()
