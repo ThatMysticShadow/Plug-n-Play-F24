@@ -1,4 +1,4 @@
-# IGDA NJIT Plug n' Play 2024
+# IGDA NJIT Plug n' Play 2024!
 This is the official repository for the IGDA NJIT chapter's 2024 Plug n' Play Jam (Lasting from Wednesday, November 6 to Tuesday, November 19).
 
 The goal of this jam is for members to create their own levels with their own unique mechancis using a project base provided in this GitHub repository.
@@ -21,4 +21,3 @@ The base repository also has a template README.md that you must fill out with al
 This game will be designed with controller in mind. DO NOT change the provided project's Input Map and I would strongly advise against including mechanics that require a Mouse.
 
 ## Credits
-
