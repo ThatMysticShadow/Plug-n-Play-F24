@@ -33,6 +33,8 @@ editor_description = "This is a very basic implementation of the player controll
 
 Feel free to replace this with your own custom Player, I only require that the player node's name must be \"Player\" and it must be made a unique name."
 position = Vector2(115, 484)
+jump_strength = 90.0
+gravity = 110.0
 
 [node name="PlayerFollowCamera" parent="." instance=ExtResource("5_iu87s")]
 editor_description = "This dynamic camera is used to follow the player up to certain bounds. You can see them in engine as a red box if you wanted to tweak the parameters the impact things like the zoom."
