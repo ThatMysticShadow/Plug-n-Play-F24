@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://ddih5j62cvrr1"]
+
+[ext_resource type="PackedScene" uid="uid://xb5i5ynpctpq" path="res://DONOTEDITME/game/player/player.tscn" id="1_v3l4b"]
+[ext_resource type="Script" path="res://dev/level/shield.gd" id="2_v6712"]
+[ext_resource type="AudioStream" uid="uid://d36on0uv7ae4c" path="res://DONOTEDITME/assets/sounds/sfx/footstep_grass_004.ogg" id="3_tuuqp"]
+[ext_resource type="AudioStream" uid="uid://bqxwc7jke7atw" path="res://DONOTEDITME/assets/sounds/sfx/jump.ogg" id="4_3cuuk"]
+[ext_resource type="AudioStream" uid="uid://dxtm1qrmci6r8" path="res://dev/sounds/shield_break.mp3" id="5_dffhb"]
+[ext_resource type="Texture2D" uid="uid://jql3guw3jhom" path="res://dev/jammy.png" id="6_sovtq"]
+
+[node name="Player" instance=ExtResource("1_v3l4b")]
+script = ExtResource("2_v6712")
+player_hit_sound = null
+death_sound = null
+enemy_hit_sound = null
+max_horizontal_speed = 75.0
+deceleration = 500.0
+jump_strength = 100.0
+gravity = 100.0
+max_fall_speed = 100.0
+max_health = 2.0
+starting_health = 2.0
+footstep_sound = ExtResource("3_tuuqp")
+jump_sound = ExtResource("4_3cuuk")
+hit_sound = ExtResource("5_dffhb")
+
+[node name="Shield" type="Sprite2D" parent="." index="0"]
+texture = ExtResource("6_sovtq")
