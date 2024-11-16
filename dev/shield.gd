@@ -10,5 +10,7 @@ func check_death() -> void:
 		print_rich("[color=red]Player has died")
 		level_loader.reload_level()
 
+## shield_damage is called when current_health = 1 and allows 
+## the player to bounce off any 
 func shield_damage() -> void:
 	velocity.y = -jump_strength	+5
