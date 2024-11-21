@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jql3guw3jhom"
-path="res://.godot/imported/jammy.png-561b20c989dd26926241d85cfbfce9ad.ctex"
+uid="uid://ccobqs7ge2r83"
+path="res://.godot/imported/jammy.png-b6b0928ebfba15606169e190045cb44c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://dev/jammy.png"
-dest_files=["res://.godot/imported/jammy.png-561b20c989dd26926241d85cfbfce9ad.ctex"]
+source_file="res://dev/sprites/jammy.png"
+dest_files=["res://.godot/imported/jammy.png-b6b0928ebfba15606169e190045cb44c.ctex"]
 
 [params]
 
