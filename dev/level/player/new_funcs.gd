@@ -59,7 +59,7 @@ func update_animation() -> void:
 ## The function is called when the player loses their shield (1 hp) and allows the player to 
 ## bounce off any non-enemy hazards
 func shield_bounce() -> void:
-	velocity.y = -jump_strength
+	velocity.y = -jump_strength - 15
 	#velocity.x = -(velocity.x-15) 
 	%Shield.visible = false
 	isInv = true
