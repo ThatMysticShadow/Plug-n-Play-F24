@@ -1,0 +1,58 @@
+[gd_scene load_steps=11 format=3 uid="uid://ddih5j62cvrr1"]
+
+[ext_resource type="PackedScene" uid="uid://xb5i5ynpctpq" path="res://DONOTEDITME/game/player/player.tscn" id="1_v3l4b"]
+[ext_resource type="Script" path="res://dev/level/player/new_funcs.gd" id="2_v6712"]
+[ext_resource type="AudioStream" uid="uid://d36on0uv7ae4c" path="res://DONOTEDITME/assets/sounds/sfx/footstep_grass_004.ogg" id="3_tuuqp"]
+[ext_resource type="AudioStream" uid="uid://bqxwc7jke7atw" path="res://DONOTEDITME/assets/sounds/sfx/jump.ogg" id="4_3cuuk"]
+[ext_resource type="AudioStream" uid="uid://dxtm1qrmci6r8" path="res://dev/sounds/shield_break.mp3" id="5_dffhb"]
+[ext_resource type="Texture2D" uid="uid://jql3guw3jhom" path="res://dev/sprites/shield.png" id="6_lyr0d"]
+[ext_resource type="Texture2D" uid="uid://ccobqs7ge2r83" path="res://dev/sprites/jammy.png" id="7_k7omy"]
+[ext_resource type="Script" path="res://dev/level/player/player_interactbox.gd" id="8_eosa8"]
+[ext_resource type="AnimationLibrary" uid="uid://dmb6joqcl0c28" path="res://dev/player_anim.res" id="8_oa2b5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1mipy"]
+
+[node name="Player" instance=ExtResource("1_v3l4b")]
+script = ExtResource("2_v6712")
+player_hit_sound = null
+death_sound = null
+enemy_hit_sound = null
+max_horizontal_speed = 75.0
+deceleration = 500.0
+jump_strength = 100.0
+gravity = 100.0
+max_fall_speed = 100.0
+max_health = 2.0
+starting_health = 2.0
+footstep_sound = ExtResource("3_tuuqp")
+jump_sound = ExtResource("4_3cuuk")
+hit_sound = ExtResource("5_dffhb")
+
+[node name="Shield" type="Sprite2D" parent="." index="0"]
+unique_name_in_owner = true
+texture = ExtResource("6_lyr0d")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("7_k7omy")
+
+[node name="PlayerInteractbox" type="Area2D" parent="." index="4"]
+script = ExtResource("8_eosa8")
+
+[node name="InteractBox" type="CollisionShape2D" parent="PlayerInteractbox" index="0"]
+shape = SubResource("RectangleShape2D_1mipy")
+
+[node name="sprite_animation" type="AnimationPlayer" parent="." index="7"]
+unique_name_in_owner = true
+reset_on_save = false
+libraries = {
+"": ExtResource("8_oa2b5")
+}
+
+[node name="damage" type="Timer" parent="." index="8"]
+unique_name_in_owner = true
+wait_time = 0.75
+one_shot = true
+
+[connection signal="area_entered" from="PlayerInteractbox" to="PlayerInteractbox" method="_on_hitbox_entered"]
+[connection signal="timeout" from="damage" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="damage" to="." method="_on_damage_timeout"]

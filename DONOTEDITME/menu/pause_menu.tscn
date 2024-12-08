@@ -108,6 +108,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MenuElements" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="MenuElements"]
 anchors_preset = 8

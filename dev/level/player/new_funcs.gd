@@ -10,9 +10,9 @@ extends Player
 
 @onready var anim_player2 = $sprite_animation
 
-var iframes : int
-
 var isInv : bool = false
+
+var hasShield = true
 
 func _ready():
 	current_health = starting_health
@@ -63,19 +63,21 @@ func shield_bounce() -> void:
 	#velocity.x = -(velocity.x-15) 
 	%Shield.visible = false
 	isInv = true
+	hasShield = false
 	%damage.start()
-
-func player_flicker() -> void:
-	$Sprite2D.visible = false
-	await get_tree().create_timer(0.2).timeout
-	$Sprite2D.visible = true
-	print("die")
 
 func _on_damage_timeout() -> void:
 	isInv = false
+	var tween = get_tree().create_tween()
+	tween.tween_property($Sprite2D, "modulate", Color(1, 1, 1), 0.3)
 
 func _process(delta: float) -> void:
 	if(isInv):
-		await player_flicker()
-		
-		
+		var tween = get_tree().create_tween()
+		tween.tween_property($Sprite2D, "modulate", Color.RED, 0.2)
+
+func add_shield() -> void:
+	if(current_health == 1):
+		current_health += 1
+		%Shield.visible = true
+		hasShield = true
